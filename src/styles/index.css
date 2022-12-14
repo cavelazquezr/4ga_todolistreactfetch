@@ -10,3 +10,26 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+/* For every task */
+
+.badge-size{
+    width: 80px;
+}
+
+.taskText-size{
+    width: 60%
+}
+
+.tasklist-size{
+    min-width: 350px;
+}
+
+.taskList{
+    display: flex;
+    min-width: 350px;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+}

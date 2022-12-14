@@ -1,24 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+//import components
+import Input from "./input.jsx";
+import TaskList from "./taskList.jsx";
 
 //create your first component
 const Home = () => {
+
+	//set variables
+	let [taskList, setTaskList] = useState([]);
+
+	const addTask = (newTask) => {
+		setTaskList([...taskList, newTask])
+	}
+
+	const removeTask = (index) => {
+		taskList.splice(index, 1);
+		setTaskList([...taskList])
+	}
+
+	const editObject = (array, index, key, newValue) => {
+		array[index][key]=newValue
+		setTaskList([...taskList])
+	}
+
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="container-fluid text-center p-4">
+			<h1>ToDo List</h1>
+
+			<Input
+			taskList={taskList}
+			addTask={addTask}
+			/>
+
+			<h4 className="text-start my-3">Tasks to do ({taskList.length})</h4>
+
+			<TaskList
+			taskList={taskList}
+			removeTask={removeTask}
+			editObject={editObject}
+			/>
+			
 		</div>
 	);
 };
