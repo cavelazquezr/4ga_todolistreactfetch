@@ -5,7 +5,12 @@ const Input = (props) => {
     const handleInput = (event) => {
         
         if(event.key ==="Enter"){
-            props.addTask({name: event.target.value, priority: ""});
+            if(event.target.value.length===0){
+                props.addTask({label: "Empty task", priority: "", done: false});
+            }
+            else{
+                props.addTask({label: event.target.value, priority: "", done: false});
+            }
             event.target.value="";
         }
     }

@@ -34,7 +34,7 @@ const Task = (props) => {
                 <p className=" m-0 h-100 badge-size">{badgeRender(props.taskList, props.index)}</p>
             </div>
             <div className="w-50 text-start">
-                <p className=" m-0">{props.item.name}</p>
+                <p className=" m-0">{props.item.label}</p>
             </div>
             <div className="">
                 <select onChange={handlePriority} className="form-select" id={props.index} value={props.item.priority}>
